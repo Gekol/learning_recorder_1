@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<p><span style="font-weight:bold">Statement:</span> {{problem.statement}}</p>
+<h2>Solutions for "{{problem.title}}"</h2>
+<ul>
+{% for solution in solutions %}
+    <li style="margin: 1%">
+        <p>{{solution}}</p>
+        <div style="border:3px solid black;">
+            <p><span>Programming language:</span> {{solution.language}}</p>
+            <pre><span>Algorythm:</span> {{solution.algorythm}}</pre>
+            <pre><span>Code:</span> {{solution.code}}</pre>
+            <p><span style="font-weight:bold">The date:</span> {{solution.date_added}}</p>
+            <a href="{% url 'problems:show_solution' problem.id solution.id %}">View all</a>
+            <!--<button id={{solution.id}}>View all</button>-->
+        </div>
+    </li>
+
+{% empty %}
+    <p>There is no solution added yet.</p>
+{% endfor %}
+</ul>
+<a href="{% url 'problems:new_solution' problem.id %}">Add a new solution</a>
+<p><span style="font-weight:bold">The source:</span> <a href={{problem.source}}>{{problem.source}}</a></p>
+<p><span style="font-weight:bold">The date when the problem was added:</span> {{problem.date_added}}</p>
+{% endblock content %}

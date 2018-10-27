@@ -1,0 +1,36 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src = "{% static 'js/javascript.js' %}"></script>
+    <title>Title</title>
+    <style>
+        div span {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <a href="/">Learning recorder</a> -
+    <a href="/problems">Problems</a> -
+    {% if user.is_authenticated %}
+        <span>Hello, {{user.username}}.</span>
+        <a href="/users/logout">Log out</a>
+    {% else %}
+        <a href="/users/login">Log in</a> -
+            <a href="/users/register">Register</a>
+    {% endif %}
+
+    {% block content %}
+        <p>
+            Learning recorder will help you to keep track of all the programming problems which you can find on the Internet. Instead of writing
+            text on paper you can put all the information here. This includes the title of the problem, its statement and source when you found it,
+            solution's title, programming language which you used to write it, algorythm and code. When you write all this stuff on a paper, that stinks.
+            Learning recorder is a very useful tool the solves this problem.
+        </p>
+    {% endblock content %}
+</body>
+</html>

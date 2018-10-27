@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+<p><span style="font-weight:bold">Language:</span> {{solution.language}}</p>
+<p><span style="font-weight:bold">Algorythm:</span> {{solution.algorythm}}</p>
+<p><span style="font-weight:bold">Code:</span> <pre>{{solution.code}}</pre></p>
+<a href="{% url 'problems:edit_solution' solution.id %}">Edit solution</a>
+{% endblock content %}

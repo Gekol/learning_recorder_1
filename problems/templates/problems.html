@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<p>Problems</p>
+<ul>
+{% for problem in problems %}
+<li><a href="{% url 'problems:problem' problem.id %}">{{problem}}</a></li>
+{% empty %}
+<li>There are no problems added yet.</li>
+{% endfor %}
+</ul>
+<a href="{% url 'problems:new_problem' %}">Add a new problem</a>
+{% endblock content %}
