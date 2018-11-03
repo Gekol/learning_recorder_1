@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
-<p><span style="font-weight:bold">Language:</span> {{solution.language}}</p>
-<p><span style="font-weight:bold">Algorythm:</span> {{solution.algorythm}}</p>
-<p><span style="font-weight:bold">Code:</span> <pre>{{solution.code}}</pre></p>
+<p><span >Language:</span> {{solution.language}}</p>
+<p><span >Algorythm:</span> {{solution.algorythm}}</p>
+<p><span >Code:</span> <pre>{{solution.code}}</pre></p>
 <a href="{% url 'problems:edit_solution' solution.id %}">Edit solution</a>
+<br />
+<a href="{% url 'problems:delete_solution' solution.id %}">Delete solution</a>
+<br>
+<a href="{% url 'problems:problem' problem.id %}">Back to the problem</a>
 {% endblock content %}
