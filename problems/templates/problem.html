@@ -22,8 +22,8 @@
 {% endfor %}
 </ul>
 <a href="{% url 'problems:new_solution' problem.id %}">Add a new solution</a>
-<p><span style="font-weight:bold">The source:</span> <a href={{problem.source}}>{{problem.source}}</a></p>
-<p><span style="font-weight:bold">The date when the problem was added:</span> {{problem.date_added}}</p>
+<p><span>The source:</span> <a href={{problem.source}}>{{problem.source}}</a></p>
+<p><span>The date when the problem was added:</span> {{problem.date_added}}</p>
 <a href="{% url 'problems:delete_problem' problem.id %}">Delete problem</a>
 <br>
 <a href="{% url 'problems:problems' %}">Back to problems</a>

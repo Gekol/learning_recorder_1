@@ -84,7 +84,7 @@ def edit_problem(request, problem_id):
         if form.is_valid():
             problem = form.save()
             problem.save()
-        return HttpResponseRedirect(reverse("problems:problems", args=[problem_id]))
+        return HttpResponseRedirect(reverse("problems:problem", args=[problem_id]))
 
 def delete_problem(request, problem_id):
     problem = Problem.objects.get(id=problem_id)
